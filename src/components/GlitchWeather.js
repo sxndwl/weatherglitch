@@ -5,6 +5,8 @@ import { theme } from '../styles/theme'
 import styled from 'styled-components'
 import Gradient from './Gradient'
 import Aside from "./Aside"
+import Description from "./Description"
+import Emoji from "./Emoji"
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -14,7 +16,7 @@ const Wrapper = styled.div`
 
 const GlitchWeather = () => {
     const { weather, loading, error } = useWeather()
-    const weatherTheme = useTheme()
+    const weatherTheme = useTheme(weather)
     const [weatherLoaded, setWeatherLoaded] = useState(false)
 
     useEffect(() => {
@@ -41,6 +43,8 @@ const GlitchWeather = () => {
             <Wrapper theme={theme[weatherTheme]}>
                 <Gradient theme={theme[weatherTheme]} />
                 <Aside theme={theme[weatherTheme]} weather={weather} />
+                <Description theme={theme[weatherTheme]} weather={weather} />
+                <Emoji theme={theme[weatherTheme]} />
             </Wrapper>
     )
 }

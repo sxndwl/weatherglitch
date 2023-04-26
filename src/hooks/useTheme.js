@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
-import useWeather from "./useWeather"
 
-const useTheme = () => {
-    const { weather } = useWeather()
+const useTheme = (weather) => {
     const [weatherTheme, setWeatherTheme] = useState(undefined)
 
     useEffect(() => {

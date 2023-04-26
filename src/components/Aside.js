@@ -8,6 +8,7 @@ const Wrap = styled.div`
     left: 40px;
     transform-origin: bottom left;
     transform: rotate(-90deg);
+    z-index: 9999;
 `
 
 const Title = styled.p`
@@ -22,7 +23,7 @@ const Aside = (props) => {
         props.theme && (
             <Wrap>
                 <Title theme={props}>{date.toLocaleTimeString([], { timeStyle: 'short' })}</Title>
-                <Title theme={props}>{props.weather.name}</Title>
+                <Title theme={props}>{props.weather.name.toUpperCase()}</Title>
                 <Title theme={props}>{Math.round(props.weather.main.temp)}°C</Title>
             </Wrap>
         )
