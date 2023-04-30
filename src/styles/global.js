@@ -7,11 +7,22 @@ export default createGlobalStyle`
         font-family: 'San-Francisco';
         src: url(${SFWoff2}) format('woff2'), url(${SFWoff}) format('woff');
     }
+
     * {
         padding: 0;
         margin: 0;
     }
-    body{
+
+    body {
         font-family: 'San-Francisco';
+    }
+
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #0000EE;
+        margin-top: 20px;
+        font-size: 20px;
     }
 `

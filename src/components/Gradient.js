@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 const Wrap = styled.div`
     position: relative;
-    width: 40%;
+    width: 45%;
     height: 35%;
     background: ${props => props.theme.gradient};
 `

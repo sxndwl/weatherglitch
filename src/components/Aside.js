@@ -3,7 +3,7 @@ import styled from "styled-components"
 const Wrap = styled.div`
     display: flex;
     gap: 40px;
-    position: fixed;
+    position: absolute;
     bottom: 40px;
     left: 40px;
     transform-origin: bottom left;
@@ -12,7 +12,7 @@ const Wrap = styled.div`
 `
 
 const Title = styled.p`
-    font-size: 24px;
+    font-size: 20px;
     color: ${props => props.theme.theme.colors.dataColor};
 `
 

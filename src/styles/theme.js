@@ -32,7 +32,7 @@ export const theme = {
         emoji: Snow
     },
     cloudy: {
-        gradient: 'radial-gradient(50% 50% at 50% 50%, #F7F7F7 0%, rgba(196, 196, 196, 0) 100%);',
+        gradient: 'radial-gradient(50% 50% at 50% 50%, #F7F7F7 -10%, rgba(196, 196, 196, 0) 100%);',
         colors: {
             backgroundColor: '#182FFF',
             textColor: '#17BE08',

@@ -4,6 +4,7 @@ const Wrap = styled.p`
     position: absolute;
     left: ${props => props.left}px;
     top: ${props => props.top}px;
+    z-index: 999;
 `
 
 const getRandomNumber = (max) => Math.floor(Math.random() * (max - 100))

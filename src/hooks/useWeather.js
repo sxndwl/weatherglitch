@@ -5,29 +5,36 @@ const useWeather = () => {
     const [weather, setWeather] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+    const [isFirstVisit, setIsFirstVisit] = useState(localStorage.getItem('isFirstVisit') === null)
+
+    const TOKEN = 'YOUR API KEY'
 
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true)
-            try {
-                const position = await new Promise((resolve, reject) => {
-                    navigator.geolocation.getCurrentPosition(resolve, reject)
-                })
+        if (!isFirstVisit) {
+            const fetchData = async () => {
+                setLoading(true)
+                try {
+                    const position = await new Promise((resolve, reject) => {
+                        navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, timeout: 5000, maximumAge: 0, allow: true })
+                    })
 
-                const { latitude, longitude } = position.coords;
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=2bd27f8ac9131b3542b76fd4f604fd73&units=metric`)
-                setWeather(response.data)
-                setLoading(false)
+                    const { latitude, longitude } = position.coords;
+                    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${TOKEN}&units=metric`)
+                    setWeather(response.data)
+                    setLoading(false)
+                }
+                catch (err) {
+                    setLoading(false)
+                    setError(err.message)
+                }
             }
-            catch (err) {
-                setLoading(false)
-                setError(err.message)
-            }
+            fetchData()
         }
-        fetchData()
-    }, [])
 
-    return { weather, loading, error }
+        localStorage.setItem('isFirstVisit', false)
+    }, [isFirstVisit])
+
+    return { weather, loading, error, isFirstVisit, setIsFirstVisit }
 };
 
 export default useWeather

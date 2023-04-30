@@ -6,13 +6,11 @@ const Text = styled.p`
     left: ${props => props.left}px;
     top: ${props => props.top}px;
     color: ${props => props.color.theme.colors.textColor};
-    z-index: 999;
 `
 
 const getRandomNumber = (max) => Math.floor(Math.random() * (max - 100))
 
 const Description = (props) => {
-    console.log(props.theme.colors.textColor)
     const { clientHeight, clientWidth } = document.documentElement
     const Texts = []
 

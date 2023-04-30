@@ -25,8 +25,10 @@ const useTheme = (weather) => {
                     setWeatherTheme('sunny');
                     break;
                 default:
-                    console.log(`Unknown weather type: ${main}`);
+                    setWeatherTheme('thunderstorm')
             }
+        } else {
+            setWeatherTheme('sunny');
         }
     }, [weather])
     
