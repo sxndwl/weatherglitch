@@ -8,13 +8,15 @@ const Wrap = styled.div`
     background: ${props => props.theme.gradient};
 `
 
+const getRandomNumber = (max) => Math.floor(Math.random() * (max - 500))
+
 const Gradient = (props) => {
     const [position, setPosition] = useState({ top: 0, left: 0 })
 
     useEffect(() => {
         const { clientHeight, clientWidth } = document.documentElement
-        const top = Math.floor(Math.random() * (clientHeight - 500))
-        const left = Math.floor(Math.random() * (clientWidth - 500))
+        const top = getRandomNumber(clientHeight)
+        const left = getRandomNumber(clientWidth)
         setPosition({ top, left })
     }, [])
 

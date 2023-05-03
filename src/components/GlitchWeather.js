@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
 import useWeather from '../hooks/useWeather'
-import useTheme from "../hooks/useTheme"
+import useTheme from '../hooks/useTheme'
 import { theme } from '../styles/theme'
 import styled from 'styled-components'
+import Loading from './Loading'
 import Gradient from './Gradient'
-import Aside from "./Aside"
-import Description from "./Description"
-import Emoji from "./Emoji"
+import Aside from './Aside'
+import Description from './Description'
+import Emoji from './Emoji'
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -28,7 +29,6 @@ const GlitchWeather = () => {
     const { weather, loading, error, isFirstVisit } = useWeather()
     const weatherTheme = useTheme(weather)
     const [weatherLoaded, setWeatherLoaded] = useState(false)
-    console.log(weatherTheme)
 
     useEffect(() => {
         if (weather) {
@@ -42,7 +42,6 @@ const GlitchWeather = () => {
                 <Inner>
                     <h1>Добро пожаловать, мы используем ваше местоположение, чтобы показать вам текущую погоду в вашем регионе.</h1>
                     <button onClick={() => window.location.reload()}>Разрешить доступ к местоположению.</button>
-                    <Gradient theme={theme[weatherTheme]} />
                 </Inner>
             </Wrapper>
         )
@@ -50,7 +49,7 @@ const GlitchWeather = () => {
 
     if (loading || !weatherLoaded) {
         return (
-            <h1>loading</h1>
+            <Loading />
         )
     }
 

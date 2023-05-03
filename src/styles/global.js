@@ -11,6 +11,7 @@ export default createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
+        transition: 0.2s all;
     }
 
     body {
@@ -25,4 +26,5 @@ export default createGlobalStyle`
         margin-top: 20px;
         font-size: 20px;
     }
+
 `

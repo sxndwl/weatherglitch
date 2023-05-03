@@ -7,7 +7,7 @@ const useWeather = () => {
     const [error, setError] = useState(null)
     const [isFirstVisit, setIsFirstVisit] = useState(localStorage.getItem('isFirstVisit') === null)
 
-    const TOKEN = 'YOUR API KEY'
+    const TOKEN = '2bd27f8ac9131b3542b76fd4f604fd73'
 
     useEffect(() => {
         if (!isFirstVisit) {
