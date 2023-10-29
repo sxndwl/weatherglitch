@@ -24,6 +24,9 @@ const useTheme = (weather) => {
                 case 'Clear':
                     setWeatherTheme('sunny');
                     break;
+                case 'Snow':
+                    setWeatherTheme('snowy');
+                    break;   
                 default:
                     setWeatherTheme('thunderstorm')
             }
